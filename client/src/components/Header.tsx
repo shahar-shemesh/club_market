@@ -21,8 +21,8 @@ const Header: React.FC = () => {
     return (
         <Box
             sx={{
-                padding: '1rem 4rem',
                 gridArea: 'header',
+                padding: '1rem 4rem',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -33,7 +33,7 @@ const Header: React.FC = () => {
             <Box sx={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
 
-                    <Link 
+                    <Link
                         onClick={handleLogout}
                         variant="h1"
                         sx={{
@@ -66,7 +66,7 @@ const Header: React.FC = () => {
 
 
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Typography sx={{ color: 'white', mr: 2, direction: 'rtl' }}>
+                <Typography sx={{ visibility: { xs: 'hidden', md: 'visible' }, color: 'white', mr: { xs: 0, md: 2 }, direction: 'rtl' }}>
                     מועדון הצרכנות הגדול במדינה!
                 </Typography>
                 <IconButton

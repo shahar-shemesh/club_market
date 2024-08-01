@@ -1,8 +1,7 @@
 import OpenAI from "openai";
 
-// יצירת מופע של מחלקת OpenAI עם מפתח API
 const openai = new OpenAI({
-    apiKey: process.env.REACT_APP_OPENAI_API_KEY, // קבלת מפתח ה-API מקובץ .env
+    apiKey: process.env.REACT_APP_OPENAI_API_KEY,
     dangerouslyAllowBrowser: true,
 });
 

@@ -2,26 +2,18 @@
 import {
     Box,
     Button,
-    TextField,
     Typography,
-    IconButton,
-    InputAdornment,
-    Select,
-    MenuItem,
-    FormControl,
-    InputLabel,
 } from '@mui/material';
 
 
 const Recommended: React.FC = () => {
-
-
 
     return (
 
         <Box sx={{
             gridArea: 'recommended',
             height: '100%',
+            visibility: { xs: 'hidden', md: 'visible' }
         }}>
 
             <Typography
@@ -48,7 +40,6 @@ const Recommended: React.FC = () => {
                 }}
             >
 
-
                 <Button
                     variant="contained"
                     sx={{
@@ -71,11 +62,8 @@ const Recommended: React.FC = () => {
                     הוספה לסל
                 </Button>
             </Box>
-
-
-
-
-        </Box>);
+        </Box>
+    );
 };
 
 export default Recommended;

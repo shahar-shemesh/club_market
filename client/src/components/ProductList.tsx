@@ -9,16 +9,12 @@ import { RootState } from '../store';
 const ProductList: React.FC = () => {
     const products = useSelector((state: RootState) => state.products.items);
 
-
     return (
         <Box sx={{
             textAlign: 'right',
             gridArea: 'productList',
-            maxHeight: '70%',
-            minHeight: '72%',
-
+            maxHeight: { xs: '52%', md: '30%' }
         }}>
-
 
             <Typography
                 sx={{
@@ -40,9 +36,7 @@ const ProductList: React.FC = () => {
                 overflowY: 'auto',
                 maxHeight: '70%',
                 minHeight: '100%',
-
             }}>
-
 
                 {products.map((item, index) => (
                     <React.Fragment key={index}>

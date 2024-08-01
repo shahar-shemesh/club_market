@@ -25,7 +25,6 @@ module.exports = {
     models: [__dirname + '/models'],
     dialectOptions: {
       options: {
-        // encrypt: true,
         trustServerCertificate: true
       },
     },
@@ -40,34 +39,8 @@ module.exports = {
     models: [__dirname + '/models'],
     dialectOptions: {
       options: {
-        // encrypt: true,
-        trustServerCertificate: true // אם אתה סומך על תעודת השרת
+        trustServerCertificate: true
       },
     },
   },
 }
-
-
-// module.exports = {
-//   "development": {
-//     "username": process.env.DB_USER,
-//     "password": process.env.DB_PASSWORD,
-//     "database": process.env.DB_NAME,
-//     "host": "127.0.0.1",
-//     "dialect": "mssql"
-//   },
-//   "test": {
-//     "username": "root",
-//     "password": null,
-//     "database": "database_test",
-//     "host": "127.0.0.1",
-//     "dialect": "mssql"
-//   },
-//   "production": {
-//     "username": "root",
-//     "password": null,
-//     "database": "database_production",
-//     "host": "127.0.0.1",
-//     "dialect": "mssql"
-//   }
-// }

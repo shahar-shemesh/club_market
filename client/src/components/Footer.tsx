@@ -8,21 +8,21 @@ const Footer: React.FC = () => {
       sx={{
         gridArea: 'footer',
         display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' }, // טור במובייל ושורה בדסקטופ
-        justifyContent: { xs: 'center', md: 'space-between' }, // ממרכז את התוכן במובייל
+        flexDirection: { xs: 'column', md: 'row' },
+        justifyContent: { xs: 'center', md: 'space-between' },
         alignItems: 'center',
         padding: '10px 20px',
         borderTop: '2px solid #daf5eb',
-        textAlign: { xs: 'center', md: 'left' }, // ממרכז טקסט במובייל
+        textAlign: { xs: 'center', md: 'left' },
       }}
     >
-      {/* Left side links */}
+
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' }, // טור במובייל ושורה בדסקטופ
+          flexDirection: { xs: 'column', md: 'row' },
           gap: 2,
-          mb: { xs: 2, md: 0 }, // מרווח תחתון במובייל
+          mb: { xs: 2, md: 0 },
         }}
       >
         <Link sx={{ fontSize: '0.875rem', color: '#000000' }}>
@@ -36,11 +36,10 @@ const Footer: React.FC = () => {
         </Typography>
       </Box>
 
-      {/* Right side copyright and button */}
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' }, // טור במובייל ושורה בדסקטופ
+          flexDirection: { xs: 'column', md: 'row' },
           alignItems: 'center',
           gap: 2,
         }}
@@ -56,7 +55,7 @@ const Footer: React.FC = () => {
             color: 'black',
             padding: '2px 12px',
             textTransform: 'none',
-            mt: { xs: 1, md: 0 }, // מרווח עליון במובייל
+            mt: { xs: 1, md: 0 },
             '&:hover': {
               bgcolor: '#f0f0f0',
               borderColor: 'black',

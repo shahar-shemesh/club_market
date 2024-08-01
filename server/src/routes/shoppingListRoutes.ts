@@ -5,8 +5,6 @@ import sequelize from '../config/connection';
 
 const router = Router();
 
-
-// קבלת כל רשימות הקניות
 router.get('/', async (req: Request, res: Response) => {
     try {
         const shoppingLists = await ShoppingList.findAll();
@@ -17,7 +15,6 @@ router.get('/', async (req: Request, res: Response) => {
 });
 
 
-// קבלת רשימת קניות לפי ID
 router.get('/:id', async (req: Request, res: Response) => {
     const shoppingListId = req.params.id;
 
@@ -33,7 +30,6 @@ router.get('/:id', async (req: Request, res: Response) => {
 });
 
 
-// עדכון רשימת קניות קיימת
 router.put('/:id', async (req: Request, res: Response) => {
     const shoppingListId = req.params.id;
     const { user_id } = req.body;
@@ -53,7 +49,7 @@ router.put('/:id', async (req: Request, res: Response) => {
     }
 });
 
-// מחיקת רשימת קניות
+
 router.delete('/:id', async (req: Request, res: Response) => {
     const shoppingListId = req.params.id;
 
@@ -72,12 +68,11 @@ router.delete('/:id', async (req: Request, res: Response) => {
 
 
 
-// קבלת כל המוצרים עבור רשימת קניות לפי shoppingList_id
+
 router.get('/:id/products', async (req: Request, res: Response) => {
     const shoppingListId = req.params.id;
 
     try {
-        // חיפוש רשימת הקניות לפי ID והבאת המוצרים המשויכים לה
         const shoppingList = await ShoppingList.findByPk(shoppingListId, {
             include: [Product]
         });
@@ -86,7 +81,6 @@ router.get('/:id/products', async (req: Request, res: Response) => {
             return res.status(404).json({ error: 'Shopping list not found' });
         }
 
-        // מחזירים את המוצרים ברשימת הקניות
         res.json(shoppingList.products);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch products' });
@@ -95,21 +89,17 @@ router.get('/:id/products', async (req: Request, res: Response) => {
 
 
 
-// יצירת רשימת קניות חדשה עם מוצרים
 router.post('/', async (req: Request, res: Response) => {
     const { user_id, products } = req.body;
 
-    // התחלת טרנזקציה
     const transaction = await sequelize.transaction();
 
     try {
-        // יצירת רשימת הקניות החדשה
         const shoppingList = await ShoppingList.create(
             { user_id },
             { transaction }
         );
 
-        // הוספת המוצרים לרשימת הקניות
         if (products && products.length > 0) {
             for (const productData of products) {
                 await Product.create(
@@ -124,11 +114,9 @@ router.post('/', async (req: Request, res: Response) => {
             }
         }
 
-        // השלמת הטרנזקציה
         await transaction.commit();
         res.status(201).json(shoppingList);
     } catch (error) {
-        // ביטול הטרנזקציה במקרה של שגיאה
         await transaction.rollback();
         res.status(500).json({ error: 'Failed to create shopping list with products' });
     }

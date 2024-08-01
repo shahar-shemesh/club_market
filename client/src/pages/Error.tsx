@@ -1,5 +1,4 @@
 import { Box } from '@mui/material';
-import React from 'react';
 import { useRouteError, isRouteErrorResponse } from 'react-router-dom';
 
 interface ErrorResponse {

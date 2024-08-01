@@ -9,9 +9,7 @@ import Assistant from '../components/Assistant/Assistant';
 import Recommended from '../components/Recommended';
 
 
-
 const Home: React.FC = () => {
-
 
     return (
         <Box sx={{
@@ -27,37 +25,42 @@ const Home: React.FC = () => {
         }}>
 
             <Header />
-
-            <Box
-                sx={{
-                    gridArea: 'content',
-                    overflowY: 'hidden',
-                    padding: '3rem 7rem',
-                    display: 'grid',
-                    gap:3,
-                    gridTemplateRows: '1fr 2fr 6fr',
-                    gridTemplateColumns: '2fr 6fr',
-                    gridTemplateAreas: `
+            <Container>
+                <Box
+                    sx={{
+                        gridArea: 'content',
+                        overflowY: 'hidden',
+                        padding: { xs: '0', md: '3rem 7rem' },
+                        display: 'grid',
+                        gap: { xs: 0, md: 10 },
+                        gridTemplateRows: { xs: '1fr 3fr 3fr 3fr', md: '1rem 2fr 6fr' },
+                        gridTemplateColumns: { xs: '1fr', md: '5fr 6fr' },
+                        gridTemplateAreas: {
+                            xs: `
+          "totalItems"
+          "rocky"
+          "addProduct"
+          "productList"
+        `,
+                            md: `
           "totalItems totalItems"
           "recommended rocky"
           "addProduct productList"
         `,
-                }}>
+                        }
+                    }}>
 
 
-                <TotalItems />
-                <Recommended />
-                <Assistant />
-                <ProductList />
-                <AddProduct />
+                    <TotalItems />
+                    <Recommended />
+                    <Assistant />
+                    <ProductList />
+                    <AddProduct />
 
-
-            </Box>
-
-
+                </Box>
+            </Container >
             <Footer />
-
-        </Box>
+        </Box >
     );
 };
 

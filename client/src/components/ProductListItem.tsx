@@ -7,7 +7,6 @@ import { updateProductAmount as updateProductAmountAction } from '../store/featu
 import { RootState } from '../store';
 
 
-
 interface ProductListItemProps {
     item: {
         id: number;
@@ -67,8 +66,6 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ item }) => {
                 </IconButton>
             </Box>
 
-
-
             <Box sx={{ flex: 4, ml: 2 }}>
                 <Typography sx={{
                     color: 'primary.main'
@@ -79,11 +76,7 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ item }) => {
                 <Typography sx={{
                     fontWeight: '700'
                 }}>{item.name} x {item.amount}</Typography>
-
-                {/* <Typography>{item.price?.toFixed(2)} ₪</Typography> */}
-
             </Box>
-
 
             <Box sx={{
                 flex: 1,
@@ -92,7 +85,6 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ item }) => {
                 {item.imageUrl && (<img src={item.imageUrl} alt={item.name} style={{ width: '80px', height: 'auto' }} />
                 )}
             </Box>
-
         </Box >
     );
 };

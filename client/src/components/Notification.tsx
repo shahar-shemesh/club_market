@@ -5,11 +5,11 @@ const Notification: React.FC = () => {
     return (
         <Box
             sx={{
-                backgroundColor: 'secondary.main', // צבע רקע ירוק בהיר
-                padding: '1rem', // ריווח פנימי
-                borderRadius: '2rem', // פינות מעוגלות מאוד
-                textAlign: 'center', // יישור טקסט למרכז
-                margin: '0 auto', // מרכז את הקומפוננטה
+                backgroundColor: 'secondary.main',
+                padding: '1rem',
+                borderRadius: '2rem',
+                textAlign: 'center',
+                margin: '0 auto',
                 marginTop: '1.3rem',
                 letterSpacing: '0.5px'
             }}

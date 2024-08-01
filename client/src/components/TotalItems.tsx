@@ -1,11 +1,10 @@
 import { Box, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
-import { RootState, totalProductsItems  } from '../store';
+import { totalProductsItems  } from '../store';
 
 const TotalItems: React.FC<{}> = () => {
 
     const totalItems = useSelector(totalProductsItems);
-
 
     return (
         <Box sx={{

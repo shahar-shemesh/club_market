@@ -14,8 +14,6 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 
-// app.use(shoppingListRoutes);
-
 import categoriesRoutes from './routes/categoriesRoutes';
 import shoppingListRoutes from './routes/shoppingListRoutes';
 import userRoutes from './routes/userRoutes';
@@ -42,7 +40,6 @@ const initDB = async (): Promise<void> => {
     }
 
     // finally {
-    //     // סגירת החיבור למסד הנתונים
     //     await sequelize.close();
     // }
 
@@ -69,27 +66,20 @@ const initDB = async (): Promise<void> => {
         next();
     });
 
-    // דוגמה לאמצעי ביניים להוספת שגיאות
     app.get('/error', (req: Request, res: Response) => {
         throw new Error('This is a test error');
     });
-
 
     app.use('/api/categories', categoriesRoutes);
     app.use('/api/list', shoppingListRoutes);
     app.use('/api/users', userRoutes);
 
-
-
-    // הוספת strong-error-handler כ- middleware לטיפול בשגיאות
     app.use(strongErrorHandler({
         debug: process.env.NODE_ENV !== 'production',
         log: true,
     }));
 
-
     initDB();
-
 
     app.listen(port, () => {
         console.log(`App listening on port ${port}`);

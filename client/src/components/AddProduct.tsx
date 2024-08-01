@@ -87,7 +87,7 @@ const AddProduct: React.FC = () => {
 
         <Box sx={{
             gridArea: 'addProduct',
-            height: 'min-content',
+            height: {xs:'50%', md:'min-content'},
         }}>
 
             <Typography
@@ -108,8 +108,8 @@ const AddProduct: React.FC = () => {
                     borderColor: 'secondary.main',
                     borderRadius: '2rem',
                     padding: '1.5rem',
-                    maxWidth: '25vw',
-                    height: 'auto',
+                    maxWidth: {xs:'100vw', md:'25vw'},
+                    height: {xs:'100%', md:'auto'},
                     margin: '0 auto',
                     textAlign: 'center',
                 }}
@@ -126,11 +126,11 @@ const AddProduct: React.FC = () => {
                         '& .MuiOutlinedInput-root': {
                             borderRadius: '2rem',
                             '& input': {
-                                textAlign: 'right', // מיקום ה-placeholder בצד ימין
+                                textAlign: 'right',
                             },
                             '& .MuiInputAdornment-root': {
                                 position: 'relative',
-                                left: '1rem', // מיקום ה-icon בצד שמאל
+                                left: '1rem',
                                 transform: 'translateX(-50%)',
                             },
                         },
@@ -214,8 +214,6 @@ const AddProduct: React.FC = () => {
             >
                 צור הזמנה
             </Button>
-
-
         </Box>);
 };
 

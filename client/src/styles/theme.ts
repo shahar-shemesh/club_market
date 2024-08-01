@@ -1,7 +1,5 @@
-import { createTheme, ThemeProvider, MenuItem } from '@mui/material';
-import { Palette, PaletteOptions } from '@mui/material/styles';
+import { createTheme } from '@mui/material';
 
-// הרחבת הצבעים עבור הערכת נושא
 declare module '@mui/material/styles' {
     interface Palette {
         customGreen: Palette['primary'];
@@ -24,16 +22,16 @@ const theme = createTheme({
         },
         customGreen: {
             main: '#00ba65',
-            light: '#E0F7F1', // רקע ירוק בהיר
-            dark: '#007A56', // ירוק כהה
+            light: '#E0F7F1',
+            dark: '#007A56',
             contrastText: '#FFFFFF',
         },
         background: {
-            default: '#FFFFFF', // רקע ראשי לבן
+            default: '#FFFFFF',
         },
         text: {
-            primary: '#000000', // טקסט ראשי שחור
-            secondary: '#000000', // טקסט משני אפור כהה
+            primary: '#000000',
+            secondary: '#000000',
         },
     },
     typography: {
@@ -61,8 +59,8 @@ const theme = createTheme({
         MuiButton: {
             styleOverrides: {
                 root: {
-                    textTransform: 'none', // ללא אותיות גדולות
-                    borderRadius: 8, // פינות מעוגלות
+                    textTransform: 'none',
+                    borderRadius: 8,
                     backgroundColor: '#fff',
                     color: 'black',
                     fontWeight: 'bold'
@@ -75,12 +73,12 @@ const theme = createTheme({
                     textAlign: 'right',
                     direction: 'rtl',
                     '&:hover': {
-                        backgroundColor: 'secondary.main', // רקע כחול כהה בזמן מעבר עכבר
-                        color: 'primary.main', // צבע טקסט לבן בזמן מעבר עכבר
+                        backgroundColor: 'secondary.main',
+                        color: 'primary.main', 
                     },
                     '&.Mui-selected': {
-                        backgroundColor: 'primary.main', // רקע כחול עבור אובייקט נבחר
-                        color: 'primary.main', // צבע טקסט לבן עבור אובייקט נבחר
+                        backgroundColor: 'primary.main', 
+                        color: 'primary.main',
                     },
                 },
             },

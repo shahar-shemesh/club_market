@@ -67,7 +67,7 @@ const Assistant: React.FC = () => {
 
     const handleKeyPress = (event: React.KeyboardEvent) => {
         if (event.key === 'Enter') {
-            event.preventDefault(); // למנוע את הפעולה הרגילה של ה-Enter
+            event.preventDefault();
             handleSubmit();
         }
     };
@@ -80,6 +80,7 @@ const Assistant: React.FC = () => {
                 gridArea: 'rocky',
                 display: 'flex',
                 flexDirection: 'column',
+                width: {xs: '100vw', md: 'auto'}
             }}
         >
             <Typography
@@ -142,15 +143,12 @@ const Assistant: React.FC = () => {
                         fullWidth
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
-                        onKeyPress={handleKeyPress} // הוספת מאזין למקש Enter
+                        onKeyPress={handleKeyPress}
                         InputProps={{ disableUnderline: true }}
                         sx={{ mr: 3, direction: 'rtl' }}
                     />
                 </Box>
-
             </Box>
-
-
         </Box>
     );
 };

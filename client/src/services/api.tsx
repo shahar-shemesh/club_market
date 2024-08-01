@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
+
 export async function createShoppingList(user_id: number, products: Array<{ name: string, category_id: number, amount: number }>) {
     try {
         const response = await axios.post(`${API_BASE_URL}/list`, {
@@ -15,7 +16,7 @@ export async function createShoppingList(user_id: number, products: Array<{ name
     }
 }
 
-// קבלת כל המוצרים עבור רשימת קניות לפי shoppingList_id
+
 export async function getProductsByShoppingListId(shoppingListId: number) {
     try {
         const response = await axios.get(`${API_BASE_URL}/list/${shoppingListId}/products`);
@@ -26,7 +27,6 @@ export async function getProductsByShoppingListId(shoppingListId: number) {
     }
 }
 
-// קבלת כל רשימות הקניות
 export async function getAllShoppingLists() {
     try {
         const response = await axios.get(`${API_BASE_URL}/list`);
@@ -38,8 +38,6 @@ export async function getAllShoppingLists() {
 };
 
 
-
-// קבלת רשימת קניות לפי ID
 export async function getShoppingListById(shoppingListId: number) {
     try {
         const response = await axios.get(`${API_BASE_URL}/list/${shoppingListId}`);
