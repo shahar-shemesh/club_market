@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:4000/api';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 export async function login(username: string, password: string): Promise<{ username: string, userId: number }> {
     try {
@@ -27,8 +27,6 @@ export async function register(username: string, password: string) {
 };
 
 
-
-// קבלת משתמש לפי ID
 export async function getUserById(userId: number) {
     try {
         const response = await axios.get(`${API_BASE_URL}/users/${userId}`);

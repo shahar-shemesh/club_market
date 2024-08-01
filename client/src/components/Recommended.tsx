@@ -11,8 +11,6 @@ import {
     FormControl,
     InputLabel,
 } from '@mui/material';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 const Recommended: React.FC = () => {
@@ -50,9 +48,7 @@ const Recommended: React.FC = () => {
                 }}
             >
 
-             
 
-                
                 <Button
                     variant="contained"
                     sx={{

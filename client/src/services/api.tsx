@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:4000/api'; // עדכן בהתאם לצורך
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
-// יצירת רשימת קניות חדשה עם מוצרים
 export async function createShoppingList(user_id: number, products: Array<{ name: string, category_id: number, amount: number }>) {
     try {
         const response = await axios.post(`${API_BASE_URL}/list`, {
