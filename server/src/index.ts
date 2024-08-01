@@ -18,6 +18,7 @@ const port = process.env.PORT || 4000;
 
 import categoriesRoutes from './routes/categoriesRoutes';
 import shoppingListRoutes from './routes/shoppingListRoutes';
+import userRoutes from './routes/userRoutes';
 
 
 
@@ -29,7 +30,11 @@ const initDB = async (): Promise<void> => {
         await Category.bulkCreate(categories);
         console.log('Categories have been added.');
 
-        await User.bulkCreate(users);
+        // await User.bulkCreate(users);
+        await User.create({
+            username: "shahar",
+            password: "123456"
+        });
         console.log('Users have been added.');
 
     } catch (error) {
@@ -70,10 +75,9 @@ const initDB = async (): Promise<void> => {
     });
 
 
-    app.use('/categories', categoriesRoutes);
-    app.use('/list', shoppingListRoutes);
-
-
+    app.use('/api/categories', categoriesRoutes);
+    app.use('/api/list', shoppingListRoutes);
+    app.use('/api/users', userRoutes);
 
 
 

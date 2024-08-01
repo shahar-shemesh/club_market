@@ -1,4 +1,5 @@
-import { Table, Column, Model, DataType, HasMany } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, HasMany, BeforeCreate, BeforeUpdate } from 'sequelize-typescript';
+import bcrypt from 'bcrypt';
 import ShoppingList from './ShoppingList';
 
 
@@ -17,6 +18,20 @@ class User extends Model {
 
   @HasMany(() => ShoppingList)
   shoppingLists!: ShoppingList[];
+
+
+  @BeforeCreate
+  @BeforeUpdate
+  static async hashPassword(user: User) {
+    if (user.changed('password')) {
+      const saltRounds = 10;
+      user.password = await bcrypt.hash(user.password, saltRounds);
+    }
+  };
+
+  async validatePassword(password: string): Promise<boolean> {
+    return await bcrypt.compare(password, this.password);
+  };
 
 };
 

@@ -1,0 +1,40 @@
+import axios from 'axios';
+
+const API_BASE_URL = 'http://localhost:4000/api';
+
+export async function login(username: string, password: string): Promise<{ username: string, userId: number }> {
+    try {
+        const response = await axios.post(`${API_BASE_URL}/users/login`, { username, password });
+        return { username: username, userId: (response.data).userId };
+
+    } catch (error) {
+        console.error('Login failed:', error);
+        throw error;
+    }
+}
+
+
+
+export async function register(username: string, password: string) {
+    try {
+        const response = await axios.post(`${API_BASE_URL}/users`, { username, password });
+        return response.data;
+
+    } catch (error) {
+        console.error('Failed to register user:', error);
+        throw error;
+    }
+};
+
+
+
+// קבלת משתמש לפי ID
+export async function getUserById(userId: number) {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/users/${userId}`);
+        return response.data; // החזרת נתוני המשתמש שהתקבלו מהשרת
+    } catch (error) {
+        console.error('Failed to fetch user:', error);
+        throw error; // זרוק את השגיאה כדי שמטפלי שגיאות אחרים יוכלו לטפל בה
+    }
+}
