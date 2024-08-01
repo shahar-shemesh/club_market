@@ -11,8 +11,7 @@ module.exports = {
     models: [__dirname + '/models'],
     dialectOptions: {
       options: {
-        // encrypt: true, // אם אתה משתמש בחיבור מאובטח (SSL)
-        trustServerCertificate: true // אם אתה סומך על תעודת השרת
+        trustServerCertificate: true
       },
     },
   },

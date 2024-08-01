@@ -25,6 +25,7 @@ import { selectAllProducts, clearProducts } from '../store/features/productSlice
 
 
 const AddProduct: React.FC = () => {
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
     const dispatch = useDispatch();
     const categories = useSelector((state: RootState) => state.categories.categories);
@@ -33,7 +34,6 @@ const AddProduct: React.FC = () => {
 
 
     useEffect(() => {
-        const API_BASE_URL = 'http://localhost:4000/api';
         const fetchCategories = async () => {
             try {
                 const response = await axios.get(`${API_BASE_URL}/categories`);
