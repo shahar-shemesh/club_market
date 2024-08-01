@@ -8,11 +8,9 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-
 
 
 root.render(
@@ -20,21 +18,17 @@ root.render(
     <CssBaseline />
     <GlobalStyles
       styles={{
-        /* עיצוב מסילת הגלילה */
         '::-webkit-scrollbar': {
           width: '8px',
         },
-        /* עיצוב הרקע של מסילת הגלילה */
         '::-webkit-scrollbar-track': {
           background: theme.palette.secondary.main,
           borderRadius: '10px',
         },
-        /* עיצוב ה-thumb */
         '::-webkit-scrollbar-thumb': {
           backgroundColor: theme.palette.primary.main,
           borderRadius: '10px',
         },
-        /* עיצוב ה-thumb בזמן hover */
         '::-webkit-scrollbar-thumb:hover': {
           backgroundColor: '#007A56',
         },
@@ -57,5 +51,7 @@ root.render(
   </ThemeProvider>
 
 );
+
+
 
 

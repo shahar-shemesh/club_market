@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  server:
+    build: ./server
+    ports:
+      - "4000:4000"
+    env_file:
+      - ./server/.env
+    volumes:
+      - ./server:/app
+    networks:
+      - app-network
+
+  client:
+    build: ./client
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./client/.env
+    volumes:
+      - ./client:/app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

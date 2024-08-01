@@ -30,9 +30,6 @@ const App: React.FC = () => {
         <Route path="/" element={auth ? <Home /> : <SignIn />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
-        {/* <Route path="/shopping-list" element={<ShoppingList />} />
-        <Route path="/product/:id" element={<ProductDetail />} /> */}
-
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>

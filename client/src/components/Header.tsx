@@ -26,7 +26,7 @@ const Header: React.FC = () => {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                bgcolor: 'primary.main', // צבע הרקע של ה-header
+                bgcolor: 'primary.main',
             }}
         >
 
