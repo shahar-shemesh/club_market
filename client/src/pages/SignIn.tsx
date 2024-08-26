@@ -51,7 +51,6 @@ export default function SignIn() {
                 const userLogged = await login(user!.toString(), pass!.toString());
                 if (userLogged) {
                     console.log(userLogged);
-                    dispatch(authLoginAction({ username: userLogged.username, userId: userLogged.userId }));
                     if (remember) {
                         const encryptedUser = CryptoJS.AES.encrypt(JSON.stringify(userLogged), SECRET_KEY).toString();
                         console.log(encryptedUser);

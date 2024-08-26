@@ -24,6 +24,7 @@ const App: React.FC = () => {
     const isAuthenticated = Cookies.get('isAuthenticated');
 
     if (storedUser && isAuthenticated === 'true') {
+      // dispatch(authLoginAction({ username: JSON.parse(storedUser).username, userId: JSON.parse(storedUser).userId }));
       const bytes = CryptoJS.AES.decrypt(storedUser, SECRET_KEY);
       const decryptedUser = bytes.toString(CryptoJS.enc.Utf8);
       dispatch(authLoginAction({ username: JSON.parse(decryptedUser).username, userId: JSON.parse(decryptedUser).userId }));
