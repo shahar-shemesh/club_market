@@ -19,7 +19,7 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import CryptoJS from 'crypto-js';
 
-const SECRET_KEY:string = process.env.REACT_APP_SECRET_KEY!;
+const SECRET_KEY: string = process.env.REACT_APP_SECRET_KEY!;
 
 
 
@@ -52,10 +52,11 @@ export default function SignIn() {
                     // console.log(userLogged);
                     dispatch(authLoginAction({ username: userLogged.username, userId: userLogged.userId }));
                     if (remember) {
-                        const encryptedUser = (CryptoJS.AES.encrypt(JSON.stringify(userLogged), SECRET_KEY)).toString();
-                        console.log(encryptedUser);
-                        Cookies.set('user', encryptedUser, { expires: 7 }); 
-                        Cookies.set('isAuthenticated', 'true', { expires: 7 }); 
+                        const encrypted = CryptoJS.AES.encrypt(JSON.stringify(userLogged), SECRET_KEY);
+                        const encryptedString = encrypted.toString();
+                        // console.log(encryptedUser);
+                        Cookies.set('user', encryptedString, { expires: 7 });
+                        Cookies.set('isAuthenticated', 'true', { expires: 7 });
                     }
                     toast.success('ההתחברות בוצעה בהצלחה');
                     setTimeout(() => navigate('/'), 1000);
