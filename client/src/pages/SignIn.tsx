@@ -45,14 +45,14 @@ export default function SignIn() {
         const user = data.get('username');
         const pass = data.get('password');
         const remember = data.get('remember');
-        console.log(remember);
         const loginAuth = async () => {
             try {
                 const userLogged = await login(user!.toString(), pass!.toString());
                 if (userLogged) {
-                    console.log(userLogged);
+                    // console.log(userLogged);
+                    dispatch(authLoginAction({ username: userLogged.username, userId: userLogged.userId }));
                     if (remember) {
-                        const encryptedUser = CryptoJS.AES.encrypt(JSON.stringify(userLogged), SECRET_KEY).toString();
+                        const encryptedUser = (CryptoJS.AES.encrypt(JSON.stringify(userLogged), SECRET_KEY)).toString();
                         console.log(encryptedUser);
                         Cookies.set('user', encryptedUser, { expires: 7 }); 
                         Cookies.set('isAuthenticated', 'true', { expires: 7 }); 
