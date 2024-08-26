@@ -16,6 +16,11 @@ import { toast } from 'react-toastify';
 import { login as authLoginAction } from '../store/features/authSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import CryptoJS from 'crypto-js';
+
+const SECRET_KEY:string = process.env.REACT_APP_SECRET_KEY!;
+
 
 
 function Copyright(props: any) {
@@ -48,8 +53,10 @@ export default function SignIn() {
                     console.log(userLogged);
                     dispatch(authLoginAction({ username: userLogged.username, userId: userLogged.userId }));
                     if (remember) {
-                        localStorage.setItem('user', JSON.stringify(userLogged));
-                        localStorage.setItem('isAuthenticated', 'true');
+                        const encryptedUser = CryptoJS.AES.encrypt(JSON.stringify(userLogged), SECRET_KEY).toString();
+                        console.log(encryptedUser);
+                        Cookies.set('user', encryptedUser, { expires: 7 }); 
+                        Cookies.set('isAuthenticated', 'true', { expires: 7 }); 
                     }
                     toast.success('ההתחברות בוצעה בהצלחה');
                     setTimeout(() => navigate('/'), 1000);

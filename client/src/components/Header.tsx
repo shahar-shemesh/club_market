@@ -1,10 +1,12 @@
 import { Box, Typography, IconButton, Badge, Avatar, Link } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useDispatch, useSelector } from 'react-redux';
+import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
+import Cookies from "js-cookie";
 import { totalProductsItems } from '../store';
 import { RootState } from '../store';
-import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
 import { logout } from '../store/features/authSlice';
+
 
 const Header: React.FC = () => {
 
@@ -14,8 +16,8 @@ const Header: React.FC = () => {
 
     const handleLogout = () => {
         dispatch(logout());
-        localStorage.removeItem('user');
-        localStorage.removeItem('isAuthenticated');
+        Cookies.remove('user');
+        Cookies.remove('isAuthenticated');
     };
 
     return (
@@ -86,8 +88,8 @@ const Header: React.FC = () => {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        width: '1.5rem', // קביעת רוחב ה-SVG
-                        height: '1.5rem', // קביעת גובה ה-SVG
+                        width: '1.5rem',
+                        height: '1.5rem',
                     }}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

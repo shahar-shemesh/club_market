@@ -6,8 +6,6 @@ services:
       - "4000:4000"
     env_file:
       - ./server/.env
-    volumes:
-      - ./server:/app
     networks:
       - app-network
 
@@ -17,8 +15,6 @@ services:
       - "3000:3000"
     env_file:
       - ./client/.env
-    volumes:
-      - ./client:/app
     networks:
       - app-network
 
